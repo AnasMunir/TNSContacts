@@ -1,14 +1,15 @@
 <ActionBar title="My Contacts" class="action-bar">
-    <ActionItem (tap)="showModal()" text="Add"></ActionItem>
+    <ActionItem (tap)="showModal()" text="Add" class="action-item"></ActionItem>
 </ActionBar>
 <StackLayout class="page" *ngIf="contacts.length > 0">
-    <ListView [items]="(contacts$ | async) | sortContacts:path" class="list-group">
+    <ListView [items]="contacts | sortContacts:path" class="list-group">
         <ng-template let-contact="item">
             <Label [text]="contact.firstName + ' ' + contact.lastName + ' ' + contact.phoneNumber" class="list-group-item"></Label>
         </ng-template>
     </ListView>
-    <!-- <Button *ngIf="path === 'firstName'" text="Order by Last Name" class="btn btn-primary" (tap)="change()"></Button>
-    <Button *ngIf="path === 'lastName'" text="Order by First Name" class="btn btn-primary" (tap)="change()"></Button> -->
+    <Button text="Sync to firbase" class="submit-button" (tap)="saveContacts()"></Button>
+    <Button *ngIf="path === 'firstName'" text="Order by Last Name" class="submit-button" (tap)="change()"></Button>
+    <Button *ngIf="path === 'lastName'" text="Order by First Name" class="submit-button" (tap)="change()"></Button>
 </StackLayout>
 <GridLayout rows="*" columns="*" *ngIf="contacts.length == 0">
     <Label row="0" text="No Contacts Exists" style.verticalAlignment="center" style.textAlignment="center" textWrap="true"></Label>

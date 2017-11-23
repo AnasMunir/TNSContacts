@@ -2,7 +2,8 @@ import { Contact } from "../modules/contacts/models/contacts.model";
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'sortContacts'
+    name: 'sortContacts',
+    pure: false
 })
 export class SortingContactsPipe implements PipeTransform {
 

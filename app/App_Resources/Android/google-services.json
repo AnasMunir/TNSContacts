@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "822116513589",
+    "firebase_url": "https://tnscontacts-fb33b.firebaseio.com",
+    "project_id": "tnscontacts-fb33b",
+    "storage_bucket": "tnscontacts-fb33b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822116513589:android:686319ce642cc664",
+        "android_client_info": {
+          "package_name": "org.nativescript.TNSContacts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822116513589-2lmfdene1esurvj830kb7capa4g53okk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoTRBLX1Cwt1Tjh_6I5xJ_g7iuNUYntAY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
