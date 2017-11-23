@@ -31,21 +31,23 @@ export class ContactListComponent implements OnInit {
         this.contacts$.next(this.contacts);
     }
 
-    public showModal() {
+    showModal() {
         let options = {
             context: {},
             fullscreen: true,
             viewContainerRef: this.vcRef
         };
+
         this.modal.showModal(ContactModalComponent, options).then((res: Contact) => {
-            this.contacts.push(res);
-            // this.contacts$.next(this.contacts);
-            this.contactsService.saveContact(this.contacts);
-            this.getContacts();
+            if (res) {
+                this.contacts.push(res);
+                this.contactsService.saveContact(this.contacts);
+                this.getContacts();
+            }
         });
     }
 
     change() {
-        this.path = this.path === 'firstName' ? 'lastName': 'firstName';
+        this.path = this.path === 'firstName' ? 'lastName' : 'firstName';
     }
 }

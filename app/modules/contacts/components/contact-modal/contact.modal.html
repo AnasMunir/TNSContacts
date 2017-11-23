@@ -1,34 +1,36 @@
-<ActionBar title="My App">
-    <ActionItem (tap)="close()" text="Close"></ActionItem>
-</ActionBar>
-<!-- <GridLayout backgroundColor="white">
-    <ListView [items]="frameworks" class="list-group">
-        <ng-template let-framework="item">
-            <StackLayout class="list-group-item" (tap)="close()">
-                <Label text="{{ framework }}" class="label"></Label>
-            </StackLayout>
-        </ng-template>
-    </ListView>
-</GridLayout> -->
-<GridLayout backgroundColor="white">
-    <StackLayout [formGroup]="contactsForm">
+<GridLayout backgroundColor="white" rows="50, *">
+    <StackLayout row="0">
+        <GridLayout rows="*" columns="*,55" class="header">
+            <Label text="Create Contact" row="0" col="0" style.verticalAlignment="center" style.textAlignment="center" textWrap="true"></Label>
+            <Label style.verticalAlignment="center" class="cancel" text="Cancel" row="0" col="1" (tap)="cancel()"></Label>
+        </GridLayout>
+    </StackLayout>
+    <StackLayout [formGroup]="contactsForm" row="1">
         <StackLayout>
-            <Label text="First Name"></Label>
-            <TextField formControlName="firstName" class="input" required returnKeyType="next"></TextField>
-            <StackLayout class="hr-light"></StackLayout>
+            <Label text="First Name" class="padding-top"></Label>
+            <TextField formControlName="firstName" class="input" required></TextField>
         </StackLayout>
-        <StackLayout class="input-field">
-            <Label text="Last Name"></Label>
-            <TextField formControlName="lastName" class="input" required returnKeyType="next"></TextField>
-            <StackLayout class="hr-light"></StackLayout>
-        </StackLayout>
-        <StackLayout class="input-field">
-            <Label text="Phonenumber"></Label>
-            <TextField formControlName="phoneNumber" class="input" required returnKeyType="next" keyboardType="number"></TextField>
-            <StackLayout class="hr-light"></StackLayout>
-        </StackLayout>
+        <StackLaout *ngIf="!contactsForm.controls.firstName.valid && (contactsForm.controls.firstName.dirty || submitAttempt)">
+            <Label class="invalid padding" text="Please enter your first name"></Label>
+        </StackLaout>
 
-        <StackLayout class="input-field">
+        <StackLayout>
+            <Label text="Last Name"></Label>
+            <TextField formControlName="lastName" class="input" required></TextField>
+        </StackLayout>
+        <StackLaout *ngIf="!contactsForm.controls.lastName.valid && (contactsForm.controls.lastName.dirty || submitAttempt)">
+            <Label class="invalid padding" text="Please enter your last name"></Label>
+        </StackLaout>
+
+        <StackLayout>
+            <Label text="Phonenumber"></Label>
+            <TextField formControlName="phoneNumber" class="input" required keyboardType="number"></TextField>
+        </StackLayout>
+        <StackLaout *ngIf="!contactsForm.controls.phoneNumber.valid && (contactsForm.controls.phoneNumber.dirty || submitAttempt)">
+            <Label class="invalid padding" text="Please write correct number"></Label>
+        </StackLaout>
+
+        <StackLayout>
             <Button text="Add Contact" class="btn btn-primary" (tap)="addContact()"></Button>
         </StackLayout>
     </StackLayout>
