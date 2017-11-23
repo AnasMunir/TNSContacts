@@ -4,11 +4,12 @@ import { PROVIDERS } from "./services";
 import { COMPONENTS } from "./components";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { PIPES } from "../../pipes";
 
 @NgModule({
     imports: [NativeScriptModule, NativeScriptFormsModule, FormsModule, ReactiveFormsModule],
-    declarations: [...COMPONENTS],
-    exports: [...COMPONENTS],
+    declarations: [...COMPONENTS, ...PIPES],
+    exports: [...COMPONENTS, ...PIPES],
     entryComponents: [...COMPONENTS],
     providers: [...PROVIDERS],
     schemas: [NO_ERRORS_SCHEMA],

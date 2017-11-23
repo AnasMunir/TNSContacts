@@ -2,6 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
+import { PIPES } from "./pipes";
 
 // import { ItemService } from "./item/item.service";
 // import { ItemsComponent } from "./item/items.component";
@@ -31,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     // entryComponents:[ModalComponent],
     declarations: [
         AppComponent,
+        // ...PIPES,
         // ItemsComponent,
         // ItemDetailComponent,
         // ModalComponent
@@ -38,6 +40,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     providers: [
         // ItemService
     ],
+    // exports: [
+    //     ...PIPES
+    // ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

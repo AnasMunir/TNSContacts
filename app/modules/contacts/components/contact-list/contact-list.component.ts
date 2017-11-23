@@ -4,6 +4,7 @@ import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { Contact } from "../../models/contacts.model";
 import { ContactsService } from "../../services/contacts.service";
 import { ContactModalComponent } from "../contact-modal/contact.modal";
+import { BehaviorSubject } from "rxjs";
 
 @Component({
     selector: "contact-list",
@@ -12,9 +13,9 @@ import { ContactModalComponent } from "../contact-modal/contact.modal";
 })
 export class ContactListComponent implements OnInit {
     contacts: Contact[];
+    contacts$: BehaviorSubject<Contact[]> = new BehaviorSubject(null);
+    path: string = 'firstName';
 
-    // This pattern makes use of Angular’s dependency injection implementation to inject an instance of the ItemService service into this class. 
-    // Angular knows about this service because it is included in your app’s main NgModule, defined in app.module.ts.
     constructor(
         private contactsService: ContactsService,
         private modal: ModalDialogService,
@@ -26,12 +27,10 @@ export class ContactListComponent implements OnInit {
 
     getContacts() {
         let contacts = this.contactsService.getContacts();
-        this.contacts = contacts
+        this.contacts = contacts;
+        this.contacts$.next(this.contacts);
     }
 
-    add() {
-        console.log('boom');
-    }
     public showModal() {
         let options = {
             context: {},
@@ -40,8 +39,13 @@ export class ContactListComponent implements OnInit {
         };
         this.modal.showModal(ContactModalComponent, options).then((res: Contact) => {
             this.contacts.push(res);
+            // this.contacts$.next(this.contacts);
             this.contactsService.saveContact(this.contacts);
-            // this.getContacts();
+            this.getContacts();
         });
+    }
+
+    change() {
+        this.path = this.path === 'firstName' ? 'lastName': 'firstName';
     }
 }
