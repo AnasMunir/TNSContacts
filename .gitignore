@@ -1,0 +1,14 @@
+*.js
+*.map
+hooks
+lib
+node_modules
+platforms
+.vscode/angulardoc.json
+npm-debug.log
+*.js.map
+app/**/*.js
+hooks/
+lib/
+tmp/
+typings/

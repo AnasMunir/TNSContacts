@@ -1,0 +1,35 @@
+<ActionBar title="My App">
+    <ActionItem (tap)="close()" text="Close"></ActionItem>
+</ActionBar>
+<!-- <GridLayout backgroundColor="white">
+    <ListView [items]="frameworks" class="list-group">
+        <ng-template let-framework="item">
+            <StackLayout class="list-group-item" (tap)="close()">
+                <Label text="{{ framework }}" class="label"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</GridLayout> -->
+<GridLayout backgroundColor="white">
+    <StackLayout [formGroup]="contactsForm">
+        <StackLayout>
+            <Label text="First Name"></Label>
+            <TextField formControlName="firstName" class="input" required returnKeyType="next"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label text="Last Name"></Label>
+            <TextField formControlName="lastName" class="input" required returnKeyType="next"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label text="Phonenumber"></Label>
+            <TextField formControlName="phoneNumber" class="input" required returnKeyType="next" keyboardType="number"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+
+        <StackLayout class="input-field">
+            <Button text="Add Contact" class="btn btn-primary" (tap)="addContact()"></Button>
+        </StackLayout>
+    </StackLayout>
+</GridLayout>
