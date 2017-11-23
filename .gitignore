@@ -12,3 +12,4 @@ hooks/
 lib/
 tmp/
 typings/
+.DS_Store

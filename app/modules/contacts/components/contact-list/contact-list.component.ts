@@ -21,7 +21,12 @@ export class ContactListComponent implements OnInit {
         private vcRef: ViewContainerRef) { }
 
     ngOnInit(): void {
-        this.contacts = this.contactsService.getContacts();
+        this.getContacts();
+    }
+
+    getContacts() {
+        let contacts = this.contactsService.getContacts();
+        this.contacts = contacts
     }
 
     add() {
@@ -34,7 +39,9 @@ export class ContactListComponent implements OnInit {
             viewContainerRef: this.vcRef
         };
         this.modal.showModal(ContactModalComponent, options).then((res: Contact) => {
-            this.contactsService.pushContact(res);
+            this.contacts.push(res);
+            this.contactsService.saveContact(this.contacts);
+            // this.getContacts();
         });
     }
 }

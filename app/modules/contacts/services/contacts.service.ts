@@ -1,22 +1,21 @@
 import { Injectable } from "@angular/core";
 
 import { Contact } from "../models/contacts.model";
+import * as appSettings from "application-settings";
 
 @Injectable()
 export class ContactsService {
-    private contacts = new Array<Contact>(
-        { firstName: 'Anas', lastName: "Munir", phoneNumber: 23123 }
-    );
 
     getContacts(): Contact[] {
-        return this.contacts;
+        let contacts = appSettings.getString('contacts');
+        if (contacts) {
+            // this.contacts = JSON.parse(contacts);
+            return JSON.parse(contacts);
+        }
+        return [];
     }
 
-    pushContact(contact: Contact) {
-        this.contacts.push(contact);
+    saveContact(value: Contact[]) {
+        appSettings.setString('contacts', JSON.stringify(value));
     }
-
-    // getItem(id: number): Item {
-    //     return this.items.filter(item => item.id === id)[0];
-    // }
 }

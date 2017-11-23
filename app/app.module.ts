@@ -23,10 +23,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        ContactsModule,
         NativeScriptFormsModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        ContactsModule,
     ],
     // entryComponents:[ModalComponent],
     declarations: [
