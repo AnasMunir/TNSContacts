@@ -1,1 +1,24 @@
-Button{margin-left:16;margin-right:16;margin-bottom:10}.submit-button{background-color:#992BDB;color:white;margin-top:20}.action-bar{background-color:#992BDB;color:white}.action-item{color:white}.mdi{font-family:"Material Icons", "MaterialIcons-Regular"}
+Button {
+    margin-left: 16;
+    margin-right: 16;
+    margin-bottom: 10
+}
+
+.submit-button {
+    background-color: #992BDB;
+    color: white;
+    margin-top: 20
+}
+
+.action-bar {
+    background-color: #992BDB;
+    color: white
+}
+
+.action-item {
+    color: white
+}
+
+.mdi {
+    font-family: "Material Icons", "MaterialIcons-Regular"
+}

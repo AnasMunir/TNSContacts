@@ -1,5 +1,5 @@
 <ActionBar title="My Contacts" class="action-bar">
-    <ActionItem (tap)="showModal()" position="right" android.systemIcon="ic_menu_add" ios.systemIcon="5"
+    <ActionItem (tap)="showModal()" position="right" android.systemIcon="ic_menu_add" ios.systemIcon="4"
     ios.position="right"></ActionItem>
     <!-- <Label text="My Contacts"></Label>
     <Label class="mdi" [text]="'mdi-add-circle-outline' | fonticon"></Label> -->
@@ -10,7 +10,8 @@
             <Label [text]="contact.firstName + ' ' + contact.lastName + ' ' + contact.phoneNumber" class="list-group-item"></Label>
         </ng-template>
     </ListView>
-    <Button class="submit-button mdi" [text]="('mdi-sync' | fonticon) + ' ' + 'Sync to firebase'" (tap)="saveContacts()"></Button>
+    <!-- <Button class="submit-button mdi" text="SAAA" (tap)="saveContacts()"></Button> -->
+    <Button class="submit-button mdi" [text]="('mdi-sync' | fonticon) + ' SYNC TO FIREBASE'" (tap)="saveContacts()"></Button>
     <Button *ngIf="path === 'firstName'" text="Order by Last Name" class="submit-button" (tap)="change()"></Button>
     <Button *ngIf="path === 'lastName'" text="Order by First Name" class="submit-button" (tap)="change()"></Button>
 </StackLayout>
