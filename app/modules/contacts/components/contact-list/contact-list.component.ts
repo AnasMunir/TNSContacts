@@ -10,6 +10,7 @@ import { BehaviorSubject } from "rxjs";
     selector: "contact-list",
     moduleId: module.id,
     templateUrl: "./contact-list.component.html",
+    styleUrls: ["./contact-list.component.css"]
 })
 export class ContactListComponent implements OnInit {
     contacts: Contact[];

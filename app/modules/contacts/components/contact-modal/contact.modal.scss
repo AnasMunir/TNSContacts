@@ -1,18 +1,36 @@
 .invalid {
     color: rgba(210, 35, 35, 0.653);
 }
+
 .padding {
     padding-bottom: 20;
 }
+
 .padding-top {
     padding-top: 20;
 }
+
 .header {
     font-weight: bold;
     font-size: 16;
-    background-color: rgb(227, 227, 227);
+    background-color: rgb(46, 12, 67);
+    background: rgb(46, 12, 67);
+    color: white;
 }
+
 .cancel {
     color: rgb(83, 191, 237);
     font-size: 16;
+}
+
+Button {
+    margin-left: 16;
+    margin-right: 16;
+    margin-bottom: 10;
+}
+
+.submit-button {
+    background-color: #992BDB;
+    color: white;
+    margin-top: 20;
 }

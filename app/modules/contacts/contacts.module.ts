@@ -5,9 +5,17 @@ import { COMPONENTS } from "./components";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { PIPES } from "../../pipes";
+import { TNSFontIconModule } from 'nativescript-ng2-fonticon';
 
 @NgModule({
-    imports: [NativeScriptModule, NativeScriptFormsModule, FormsModule, ReactiveFormsModule],
+    imports: [
+        NativeScriptModule,
+        NativeScriptFormsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TNSFontIconModule.forRoot({
+            'mdi': 'material-design-icons.css'
+        })],
     declarations: [...COMPONENTS, ...PIPES],
     exports: [...COMPONENTS, ...PIPES],
     entryComponents: [...COMPONENTS],
