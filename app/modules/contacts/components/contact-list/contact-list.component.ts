@@ -7,6 +7,7 @@ import { ContactModalComponent } from "../contact-modal/contact.modal";
 import { BehaviorSubject, Observable } from "rxjs";
 import { concat } from "rxjs/operator/concat";
 import { TNSFontIconService } from 'nativescript-ng2-fonticon';
+import * as Toast from "nativescript-toast";
 
 @Component({
     selector: "contact-list",
@@ -45,20 +46,20 @@ export class ContactListComponent implements OnInit {
             viewContainerRef: this.vcRef
         };
 
-        this.modal.showModal(ContactModalComponent, options).then((res: Contact) => {
-            this.ngZone.run(() => {
+        this.modal.showModal(ContactModalComponent, options)
+            .then((res: Contact) => {
                 if (res) {
                     this.contacts.push(res);
                 }
-            })
-        });
+            });
     }
 
     saveContacts() {
         this.contactsService.saveContact(this.contacts)
             .then((res) => {
                 console.log(res);
-            });
+                Toast.makeText('Synced to firebase').show();
+            })
     }
 
     change() {

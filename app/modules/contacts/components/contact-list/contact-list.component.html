@@ -10,7 +10,7 @@
             <Label [text]="contact.firstName + ' ' + contact.lastName + ' ' + contact.phoneNumber" class="list-group-item"></Label>
         </ng-template>
     </ListView>
-    <Button text="Sync to firbase" class="submit-button" (tap)="saveContacts()"></Button>
+    <Button class="submit-button mdi" [text]="('mdi-sync' | fonticon) + ' ' + 'Sync to firebase'" (tap)="saveContacts()"></Button>
     <Button *ngIf="path === 'firstName'" text="Order by Last Name" class="submit-button" (tap)="change()"></Button>
     <Button *ngIf="path === 'lastName'" text="Order by First Name" class="submit-button" (tap)="change()"></Button>
 </StackLayout>
