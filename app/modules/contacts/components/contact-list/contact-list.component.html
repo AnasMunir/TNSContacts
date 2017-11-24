@@ -1,7 +1,10 @@
 <ActionBar title="My Contacts" class="action-bar">
-    <ActionItem (tap)="showModal()" text="Add" class="action-item"></ActionItem>
+    <ActionItem (tap)="showModal()" position="right" android.systemIcon="ic_menu_add" ios.systemIcon="5"
+    ios.position="right"></ActionItem>
+    <!-- <Label text="My Contacts"></Label>
+    <Label class="mdi" [text]="'mdi-add-circle-outline' | fonticon"></Label> -->
 </ActionBar>
-<StackLayout class="page" *ngIf="contacts.length > 0">
+<StackLayout style.backgroundColor="lightgray" *ngIf="contacts.length > 0">
     <ListView [items]="contacts | sortContacts:path" class="list-group">
         <ng-template let-contact="item">
             <Label [text]="contact.firstName + ' ' + contact.lastName + ' ' + contact.phoneNumber" class="list-group-item"></Label>
@@ -11,6 +14,6 @@
     <Button *ngIf="path === 'firstName'" text="Order by Last Name" class="submit-button" (tap)="change()"></Button>
     <Button *ngIf="path === 'lastName'" text="Order by First Name" class="submit-button" (tap)="change()"></Button>
 </StackLayout>
-<GridLayout rows="*" columns="*" *ngIf="contacts.length == 0">
+<GridLayout style.backgroundColor="lightgray" rows="*" columns="*" *ngIf="contacts.length == 0">
     <Label row="0" text="No Contacts Exists" style.verticalAlignment="center" style.textAlignment="center" textWrap="true"></Label>
 </GridLayout>

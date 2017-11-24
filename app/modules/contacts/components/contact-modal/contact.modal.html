@@ -1,8 +1,8 @@
-<GridLayout backgroundColor="white" rows="50, *">
+<GridLayout backgroundColor="lightgray" rows="50, *">
     <StackLayout row="0">
-        <GridLayout rows="*" columns="*,55" class="header">
+        <GridLayout rows="*" columns="*,30" class="header">
             <Label text="Create Contact" row="0" col="0" style.verticalAlignment="center" style.textAlignment="center" textWrap="true"></Label>
-            <Label style.verticalAlignment="center" class="cancel" text="Cancel" row="0" col="1" (tap)="cancel()"></Label>
+            <Label style.verticalAlignment="center" class="mdi" [text]="'mdi-cancel' | fonticon" row="0" col="1" (tap)="cancel()"></Label>
         </GridLayout>
     </StackLayout>
     <StackLayout [formGroup]="contactsForm" row="1">

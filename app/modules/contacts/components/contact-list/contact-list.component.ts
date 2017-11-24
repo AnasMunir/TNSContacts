@@ -6,12 +6,13 @@ import { ContactsService } from "../../services/contacts.service";
 import { ContactModalComponent } from "../contact-modal/contact.modal";
 import { BehaviorSubject, Observable } from "rxjs";
 import { concat } from "rxjs/operator/concat";
+import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 
 @Component({
     selector: "contact-list",
     moduleId: module.id,
     templateUrl: "./contact-list.component.html",
-    styleUrls: ["./contact-list.component.scss"]
+    styleUrls: ["./contact-list.component.css"]
 })
 export class ContactListComponent implements OnInit {
     contacts: Contact[];
@@ -22,7 +23,8 @@ export class ContactListComponent implements OnInit {
         private ngZone: NgZone,
         private contactsService: ContactsService,
         private modal: ModalDialogService,
-        private vcRef: ViewContainerRef) { }
+        private vcRef: ViewContainerRef,
+        private fonticon: TNSFontIconService) { }
 
     ngOnInit(): void {
         this.getContacts();
